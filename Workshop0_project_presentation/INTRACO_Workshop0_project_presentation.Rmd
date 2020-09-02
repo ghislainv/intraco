@@ -1,20 +1,20 @@
 ---
 classoption: table, dvipsname, compress
 output: 
-  beamer_presentation:
-    # keep_tex: true
-    # toc: true
-    slide_level: 3
+  beamer_presentation: 
     citation_package: natbib
     includes:
-      in_header: header.tex
-      before_body: doc_prefix.tex
       after_body: doc_suffix.tex
+      before_body: doc_prefix.tex
+      in_header: header.tex
+    #keep_tex: yes
+    slide_level: 3
 colorlinks: no
 fontsize: 10pt
 link-citations: yes
 linkcolor: Black
-bibliography: /home/ghislain/Documents/Bibliography/biblio.bib
+#bibliography: /home/ghislain/Documents/Bibliography/biblio.bib
+bibliography: bib/biblio.bib
 biblio-style: "apalike"
 ---
 
@@ -96,7 +96,9 @@ $\Rightarrow$ Since 2003, many articles investigating the role of IV in species 
 \bcol{0.5\textwidth}
 
 @Lichstein2007, @Courbaud2012, @Uriarte2018, @Hart2016
+
 \vspace{0.25cm}
+
 Tests:
 
 - Mean difference-variance ratio 
@@ -116,6 +118,8 @@ sufficiently large, the species niches overlap \citep{Lichstein2007}.
 
 ### Contrasting results
 
+@Lichstein2007, @Courbaud2012, @Uriarte2018, @Hart2016
+
 $\Rightarrow$ IV could either promote, hinder, or have no effect on species
 coexistence.
 
@@ -127,8 +131,8 @@ coexistence.
 \bcol{0.5\textwidth}
 
 - IV does not necessarily reveal intrinsic differences among conspecific individuals
-- Observed IV does not imply niche overlap
-- Observed IV results from the multimensionality of the niche: 1 individual = 1 species in a particular environment
+- Observed IV **does not imply niche overlap**
+- Observed IV **results from the multimensionality** of the niche: 1 individual = 1 species in a particular environment
 
 \ecol
 \bcol{0.5\textwidth}
@@ -141,8 +145,8 @@ coexistence.
 ### No consensus
 
 - View defended by Clark et al. [@Clark2010; @Clark2007; @Clark2003d].
-- Appearing **not well understood/shared** by the scientific community [@Hart2016; @Uriarte2018], but see [@Falster2017].
-- **Not demonstrated** for hyperdiverse communities such as tropical forests.
+- Appearing **not well understood/shared** by the scientific community [@Hart2016; @Uriarte2018], but see @Falster2017.
+- **Has not been demonstrated** yet for hyperdiverse communities such as tropical forests.
 
 # Objectives
 
@@ -162,12 +166,17 @@ We aim at: "Unravelling the role of intraspecific variability in tree species co
 
 6 tasks that will be detailed further during the week.
 
-- **Task A**:  Reproducing Clark (2010)'s analysis in **tropical** forests
-- **Task B**:  Adapting Clark (2010)'s idea in **space**.
-- **Task C**:  Estimating the part of IV attributable to either **genetic or environmental** variability in EUCFLUX.
-- **Task D**:  Building **theoretical models** to test the effect of niche dimension and IV on coexistence.
-- **Task E**:  **Review and synthesis**: unifying framework of hypotheses.
-- **Task F**:  Empirical **models intercomparison**: testing the role of IV on species coexistence using **simulators** of tropical forest dynamics.
+- Data analysis
+    - **Task A**:  Reproducing Clark (2010)'s analysis in **tropical** forests    
+    (conspecific individuals answer more similarly than heterospecific individuals)
+    - **Task B**:  Adapting Clark (2010)'s idea in **space**.
+    - **Task C**:  Estimating the part of IV attributable to either **genetic or environmental** variability in EUCFLUX.
+- Theoretical models
+    - **Task D**:  Building **theoretical models** to test the effect of niche dimension and IV on coexistence.
+- Review
+    - **Task E**:  **Review and synthesis**: unifying framework of hypotheses.
+- Empirical model
+    - **Task F**:  Empirical **models intercomparison**: testing the role of IV on species coexistence using **simulators** of tropical forest dynamics.
 
 ### Long-term applied objectives
 
@@ -175,53 +184,11 @@ We aim at: "Unravelling the role of intraspecific variability in tree species co
   \includegraphics[width=7.5cm]{figs/project-scheme}
 \end{center}
 
-Applied objectives
+Long term objectives
 
 - Including IV in tropical forest simulators
 - Realistic simulations of tropical forest dynamics
 - Inform policy makers and management people
-
-#  Scientific work
-
-## Data analyis
-
-### Task A
-
-**Task A**: Reproducing Clark (2010)'s analysis in diverse tropical forests (Uppangala and Paracou -- likely not possible for BCI)  -- see task 1.3.2 of the proposal.
-
-To do: adapt or redo Jim's script, data formatting, test, writing.
-
-### Task B
-
-**Task B**: Testing Clark (2010)'s idea in space.
-
-To do: reproduce what Camille has done with Paracou’s data with data from Uppangala and BCI: adapt Camille’s script, data formatting, tests, writing.
-
-### Task C
-
-**Task C**: Estimating the part of IV attributable to either genetic or environmental variability in EUCFLUX -- see task 1.3.1 of the proposal.
-
-To do: build statistical models to perform the variance partitioning, tests, writing.
-
-## Theoretical models
-
-### Task D
-
-**Task D**: Building theoretical models to test the effect of niche dimension and IV on coexistence -- see task 2.1 of the proposal.
-
-To do: add multiple dimensions to Hurtt & Pacala's model using Camille's script as a starting point, build a new model that would better account for competition intra > inter.
-
-## Review
-
-### Task E
-
-**Task E**:  **Review and synthesis**: unifying framework of hypotheses.
-
-## Empirical model comparison
-
-### Task F
-
-**Task F**:  Empirical **models intercomparison**: testing the role of IV on species coexistence using **simulators** of tropical forest dynamics.
 
 # Organization
 
@@ -231,29 +198,45 @@ To do: add multiple dimensions to Hurtt & Pacala's model using Camille's script 
 
 Participants (7):
 
-- Ghislain Vieilledent (CIRAD, Montpellier, France)
-- Isabelle Maréchaux (INRAE, Montpellier, France)
-- Camille Girard-Tercieux (CNRS, Montpellier, France)
-- Adam T. Clark (iDiv, Leipzig, Germany ; University of Graz, Styria, Austria)
-- James S. Clark (Duke University, Durham, USA; INRAE, Grenoble, France)
-- Benoît Courbaud (INREA, Grenoble, France)
-- Nadja Rüger (iDiv, Leipzig, Germany; Smithsonian Tropical Research Institute, Panama)
+- Ghislain \uppercase{Vieilledent} (CIRAD, Montpellier, France)
+- Isabelle \uppercase{Maréchaux} (INRAE, Montpellier, France)
+- Camille \uppercase{Girard-Tercieux} (CNRS, Montpellier, France)
+- Adam T. \uppercase{Clark} (iDiv, Leipzig, Germany ; University of Graz, Styria, Austria)
+- James S. \uppercase{Clark} (Duke University, Durham, USA; INRAE, Grenoble, France)
+- Benoît \uppercase{Courbaud} (INREA, Grenoble, France)
+- Nadja \uppercase{Rüger} (iDiv, Leipzig, Germany; Smithsonian Tropical Research Institute, Panama)
 
 ### Invitees
 
 Invitees (5):
 
-- Georges Kunstler (INRAE, Grenoble, France)
-- Claire Fortunel (IRD, Montpellier, France)
-- Raphaël Pélissier (IRD, Montpellier, France)
-- Guerric Lemaire (CIRAD, Montpellier, France) 
-- Joannès Guillemot (CIRAD, Piracicaba, Brazil)
+- Georges \uppercase{Kunstler} (INRAE, Grenoble, France)
+- Claire \uppercase{Fortunel} (IRD, Montpellier, France)
+- Raphaël \uppercase{Pélissier} (IRD, Montpellier, France)
+- Guerric \uppercase{Lemaire} (CIRAD, Montpellier, France) 
+- Joannès \uppercase{Guillemot} (CIRAD, Piracicaba, Brazil)
 
 ### Team
 
-A nice team :)
-
-Photos
+\begin{center}
+\begin{tabular}{cccc}
+\includegraphics[width=1.75cm]{figs/participants/adam_clark} &
+\includegraphics[width=1.75cm]{figs/participants/benoit_courbaud} &
+\includegraphics[width=1.75cm]{figs/participants/camille_girard_tercieux} &
+\includegraphics[width=1.75cm]{figs/participants/claire_fortunel} \\
+Adam & Benoît & Camille & Claire \\
+\includegraphics[width=1.75cm]{figs/participants/georges_kunstler} &
+\includegraphics[width=1.75cm]{figs/participants/ghislain_vieilledent} &
+\includegraphics[width=1.75cm]{figs/participants/guerric_lemaire} &
+\includegraphics[width=1.75cm]{figs/participants/isabelle_marechaux} \\
+Georges & Ghislain & Guerric & Isabelle \\
+\includegraphics[width=1.75cm]{figs/participants/jim_clark} &
+\includegraphics[width=1.75cm]{figs/participants/johannes_guillemot} &
+\includegraphics[width=1.75cm]{figs/participants/nadja_ruger} &
+\includegraphics[width=1.75cm]{figs/participants/raphael_pelissier} \\
+Jim & Johannes & Nadja & Raphaël \\
+\end{tabular}
+\end{center}
 
 ## Funding
 
@@ -281,19 +264,23 @@ Project duration and workshop frequency:
 Workshops:
 
 - **Workshop 0**: 7-11$^{\text{th}}$ September 2020, remotely.
-- **Workshop 1**: 1$^{\text{st}}$ semester 2021, at CESAB in Montpellier, France.
+- **Workshop 1**: \colorbox{yellow}{22-26$^{\text{th}}$ February 2021}, at CESAB in Montpellier, France.
 - **Workshop 2**: 2$^{\text{nd}}$ semester 2021, together with the UNICOP group, at sDiv in Leipzig, Germany.
 - **Workshop 3**: 1$^{\text{st}}$ semester 2022, at sDiv in Leipzig, Germany.
 - **Workshop 4**: 2$^{\text{nd}}$ semester 2022, together with the UNICOP group, at CESAB in Montpellier, France.
 
 ### Camille's PhD
 
-- PhD topic: same thing as the INTRACO project 
-- Camille'sPhD $\longleftrightarrow$ INTRACO
+- Camille's PhD: same topic as the INTRACO project 
+- Camille's PhD $\longleftrightarrow$ INTRACO
 - Three years. Starting Oct. 2019, Ending Dec. 2022
+
+\vspace{0.25cm}
+
+Camille would lead Tasks B, E, and (F)
 
 ### Week planning
 
 \centering \includegraphics[height=\textheight]{figs/calendar}
 
-### References {.allowframebreaks .unlisted .unnumbered}
+### References
