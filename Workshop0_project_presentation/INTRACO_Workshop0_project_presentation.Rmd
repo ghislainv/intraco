@@ -1,0 +1,299 @@
+---
+classoption: table, dvipsname, compress
+output: 
+  beamer_presentation:
+    # keep_tex: true
+    # toc: true
+    slide_level: 3
+    citation_package: natbib
+    includes:
+      in_header: header.tex
+      before_body: doc_prefix.tex
+      after_body: doc_suffix.tex
+colorlinks: no
+fontsize: 10pt
+link-citations: yes
+linkcolor: Black
+bibliography: /home/ghislain/Documents/Bibliography/biblio.bib
+biblio-style: "apalike"
+---
+
+```{r options, echo=FALSE}
+library(knitr)
+library(kableExtra)
+opts_chunk$set(echo=FALSE, cache=FALSE,
+               #results="hide", 
+               warning=FALSE,
+               message=FALSE, highlight=TRUE,
+               fig.show="hide", size="small",
+               fig.align="center",
+               tidy=FALSE)
+options(knitr.kable.NA="-")
+```
+
+# Context
+
+## Importance of IV
+
+### Species coexistence in tropical forest
+
+One can encounter up to >900 plant species of a diversity of forms and functions in one hectare of tropical forest [@Wilson2012].
+
+\centering \includegraphics[width=8cm]{figs/Intraco}
+
+### Stable coexistence
+
+Widespread evidence of stability in natural communities [@Clark2003c].
+
+\centering \includegraphics[width=10cm]{figs/Clark2003-stability}
+
+### Mechanisms of stable species coexistence
+
+- More than 100 mechanisms have been proposed to prevent competitive exclusion [@Wright2002]
+- Niche mechanisms: demographic trade-offs, resource partitioning, storage effect, intermediate disturbance hypothesis, Janzen-Connell
+effect, etc.
+
+\centering \includegraphics[width=8cm]{figs/Wright2002}
+
+### No unified theory
+
+\bcols
+\bcol{0.5\textwidth}
+
+- No single mechanism able to explain the **stable** coexistence of hundreds of species in hyper-diverse communities
+- Few dominant species and many low-abundance species
+- Many shade-tolerant species in tropical forests
+
+\ecol
+\bcol{0.5\textwidth}
+
+\centering \includegraphics[width=5cm]{figs/Hubbell2001}
+
+\ecol
+\ecols
+
+### Intraspecific variability (IV)
+
+- **Previous mechanisms**: all individuals within a species are considered equal
+- **In nature**: high intraspecific variability: traits, allometry, demography
+- Sources of IV:
+    - Endogenous **genetic** variability
+    - Exogenous biotic or abiotic **environmental** variability
+
+### Intraspecific variability (IV)
+
+\centering \includegraphics[width=6cm]{figs/Albert-ITV}
+
+IV might have an effect on species coexistence?
+
+$\Rightarrow$ Since 2003, many articles investigating the role of IV in species coexistence.
+
+## Contrasting results
+
+### Theoretical models with few species
+
+\bcols
+\bcol{0.5\textwidth}
+
+@Lichstein2007, @Courbaud2012, @Uriarte2018, @Hart2016
+\vspace{0.25cm}
+Tests:
+
+- Mean difference-variance ratio 
+- Mean-variance trade-off
+- Non-linearity of relationships between individual- and population-level performance
+- Spatial structure of the variation among conspecific individuals
+
+\ecol
+\bcol{0.5\textwidth}
+
+\centering \includegraphics[width=5cm]{figs/species-niche-overlap-Lichstein2007}
+Gaussian distributions of individual performance for two species. If intraspecific variance is
+sufficiently large, the species niches overlap \citep{Lichstein2007}.
+
+\ecol
+\ecols
+
+### Contrasting results
+
+$\Rightarrow$ IV could either promote, hinder, or have no effect on species
+coexistence.
+
+## A different view
+
+### A different view
+
+\bcols
+\bcol{0.5\textwidth}
+
+- IV does not necessarily reveal intrinsic differences among conspecific individuals
+- Observed IV does not imply niche overlap
+- Observed IV results from the multimensionality of the niche: 1 individual = 1 species in a particular environment
+
+\ecol
+\bcol{0.5\textwidth}
+
+\centering \includegraphics[width=5cm]{figs/multidimensional-niche-Tokeshi1999}
+
+\ecol
+\ecols
+  
+### No consensus
+
+- View defended by Clark et al. [@Clark2010; @Clark2007; @Clark2003d].
+- Appearing **not well understood/shared** by the scientific community [@Hart2016; @Uriarte2018], but see [@Falster2017].
+- **Not demonstrated** for hyperdiverse communities such as tropical forests.
+
+# Objectives
+
+## Scientific objectives
+
+### Scientific objectives
+
+We aim at: "Unravelling the role of intraspecific variability in tree species coexistence in tropical forests"
+
+- Explaining why previous studies obtained contrasting results
+- Investigating further the fact that IV does not imply niche overlap
+- Investigating further the link between IV and niche multimensionality
+
+## Scientific tasks
+
+### Scientific tasks
+
+6 tasks that will be detailed further during the week.
+
+- **Task A**:  Reproducing Clark (2010)'s analysis in **tropical** forests
+- **Task B**:  Adapting Clark (2010)'s idea in **space**.
+- **Task C**:  Estimating the part of IV attributable to either **genetic or environmental** variability in EUCFLUX.
+- **Task D**:  Building **theoretical models** to test the effect of niche dimension and IV on coexistence.
+- **Task E**:  **Review and synthesis**: unifying framework of hypotheses.
+- **Task F**:  Empirical **models intercomparison**: testing the role of IV on species coexistence using **simulators** of tropical forest dynamics.
+
+### Long-term applied objectives
+
+\begin{center}
+  \includegraphics[width=7.5cm]{figs/project-scheme}
+\end{center}
+
+Applied objectives
+
+- Including IV in tropical forest simulators
+- Realistic simulations of tropical forest dynamics
+- Inform policy makers and management people
+
+#  Scientific work
+
+## Data analyis
+
+### Task A
+
+**Task A**: Reproducing Clark (2010)'s analysis in diverse tropical forests (Uppangala and Paracou -- likely not possible for BCI)  -- see task 1.3.2 of the proposal.
+
+To do: adapt or redo Jim's script, data formatting, test, writing.
+
+### Task B
+
+**Task B**: Testing Clark (2010)'s idea in space.
+
+To do: reproduce what Camille has done with Paracou’s data with data from Uppangala and BCI: adapt Camille’s script, data formatting, tests, writing.
+
+### Task C
+
+**Task C**: Estimating the part of IV attributable to either genetic or environmental variability in EUCFLUX -- see task 1.3.1 of the proposal.
+
+To do: build statistical models to perform the variance partitioning, tests, writing.
+
+## Theoretical models
+
+### Task D
+
+**Task D**: Building theoretical models to test the effect of niche dimension and IV on coexistence -- see task 2.1 of the proposal.
+
+To do: add multiple dimensions to Hurtt & Pacala's model using Camille's script as a starting point, build a new model that would better account for competition intra > inter.
+
+## Review
+
+### Task E
+
+**Task E**:  **Review and synthesis**: unifying framework of hypotheses.
+
+## Empirical model comparison
+
+### Task F
+
+**Task F**:  Empirical **models intercomparison**: testing the role of IV on species coexistence using **simulators** of tropical forest dynamics.
+
+# Organization
+
+## Participants
+
+### Participants
+
+Participants (7):
+
+- Ghislain Vieilledent (CIRAD, Montpellier, France)
+- Isabelle Maréchaux (INRAE, Montpellier, France)
+- Camille Girard-Tercieux (CNRS, Montpellier, France)
+- Adam T. Clark (iDiv, Leipzig, Germany ; University of Graz, Styria, Austria)
+- James S. Clark (Duke University, Durham, USA; INRAE, Grenoble, France)
+- Benoît Courbaud (INREA, Grenoble, France)
+- Nadja Rüger (iDiv, Leipzig, Germany; Smithsonian Tropical Research Institute, Panama)
+
+### Invitees
+
+Invitees (5):
+
+- Georges Kunstler (INRAE, Grenoble, France)
+- Claire Fortunel (IRD, Montpellier, France)
+- Raphaël Pélissier (IRD, Montpellier, France)
+- Guerric Lemaire (CIRAD, Montpellier, France) 
+- Joannès Guillemot (CIRAD, Piracicaba, Brazil)
+
+### Team
+
+A nice team :)
+
+Photos
+
+## Funding
+
+### Funding
+
+- SYNERGY call: **Cesab** and **sDiv**
+- **Cesab** is the Centre for the Synthesis and Analysis of Biodiversity, a program of the French FRB (Foundation for Research on Biodiversity)
+- **sDiv** is the synthesis center of the German iDiv (German Centre for Integrative Biodiversity Research)
+- They are both synthesis centers (equivalent to US NCEAS, National Center for Ecological Analysis and Synthesis)
+- 4 workshops are funded (travel, accommodation, meals), 2 at Cesab in Montpellier, 2 at sDiv in Leipzig
+
+\centering \includegraphics[height=1.5cm]{figs/logos-FRB-Cesab-iDiv-sDiv}
+
+## Calendar
+
+### Calendar
+
+Project duration and workshop frequency:
+
+- 2 years: starting Jan. 2021, ending Dec. 2022
+- One workshop every 6 months
+
+\vspace{0.5cm}
+
+Workshops:
+
+- **Workshop 0**: 7-11$^{\text{th}}$ September 2020, remotely.
+- **Workshop 1**: 1$^{\text{st}}$ semester 2021, at CESAB in Montpellier, France.
+- **Workshop 2**: 2$^{\text{nd}}$ semester 2021, together with the UNICOP group, at sDiv in Leipzig, Germany.
+- **Workshop 3**: 1$^{\text{st}}$ semester 2022, at sDiv in Leipzig, Germany.
+- **Workshop 4**: 2$^{\text{nd}}$ semester 2022, together with the UNICOP group, at CESAB in Montpellier, France.
+
+### Camille's PhD
+
+- PhD topic: same thing as the INTRACO project 
+- Camille'sPhD $\longleftrightarrow$ INTRACO
+- Three years. Starting Oct. 2019, Ending Dec. 2022
+
+### Week planning
+
+\centering \includegraphics[height=\textheight]{figs/calendar}
+
+### References {.allowframebreaks .unlisted .unnumbered}
