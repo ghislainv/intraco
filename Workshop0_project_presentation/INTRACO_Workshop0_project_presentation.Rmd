@@ -219,6 +219,8 @@ Invitees (5):
 ### Team
 
 \begin{center}
+A nice team ! :)\\
+\vspace{0.25cm}
 \begin{tabular}{cccc}
 \includegraphics[width=1.75cm]{figs/participants/adam_clark} &
 \includegraphics[width=1.75cm]{figs/participants/benoit_courbaud} &
@@ -231,10 +233,10 @@ Adam & Benoît & Camille & Claire \\
 \includegraphics[width=1.75cm]{figs/participants/isabelle_marechaux} \\
 Georges & Ghislain & Guerric & Isabelle \\
 \includegraphics[width=1.75cm]{figs/participants/jim_clark} &
-\includegraphics[width=1.75cm]{figs/participants/johannes_guillemot} &
+\includegraphics[width=1.75cm]{figs/participants/joannes_guillemot} &
 \includegraphics[width=1.75cm]{figs/participants/nadja_ruger} &
 \includegraphics[width=1.75cm]{figs/participants/raphael_pelissier} \\
-Jim & Johannes & Nadja & Raphaël \\
+Jim & Joannès & Nadja & Raphaël \\
 \end{tabular}
 \end{center}
 
@@ -281,6 +283,6 @@ Camille would lead Tasks B, E, and (F)
 
 ### Week planning
 
-\centering \includegraphics[height=\textheight]{figs/calendar}
+\centering \includegraphics[width=\textwidth]{figs/calendar}
 
 ### References
