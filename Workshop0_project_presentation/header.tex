@@ -23,7 +23,10 @@
 \newcommand{\pkg}[1]{{\fontseries{b}\selectfont #1}}
 \newcolumntype{C}[1]{>{\centering\arraybackslash}m{#1}}
 %% Natbib is a popular style for formatting references.
-%%\usepackage{natbib} %doesn't work with beamer
+\usepackage[sort]{natbib} %doesn't work with beamer
+%% To avoid reference in the navigation bar
+%% see: https://tex.stackexchange.com/questions/187877/how-to-hide-references-from-navigation-bar-in-beamer-class
+\renewcommand\bibsection{\section*{\refname}}
 
 \title[INTRACO]{\textbf{INTRACO: intraspecific variability and tree species coexistence in tropical forests}}
 %\subtitle{} 

@@ -1,0 +1,79 @@
+---
+classoption: table
+output: 
+  beamer_presentation:
+    # keep_tex: true
+    # toc: true
+    slide_level: 1
+    includes:
+      in_header: header.tex
+      before_body: doc_prefix.tex
+      after_body: doc_suffix.tex
+---
+
+```{r options, echo=FALSE}
+library(knitr)
+library(kableExtra)
+opts_chunk$set(echo=FALSE, cache=FALSE,
+               #results="hide", 
+               warning=FALSE,
+               message=FALSE, highlight=TRUE,
+               fig.show="hide", size="small",
+               fig.align="center",
+               tidy=FALSE)
+options(knitr.kable.NA="-")
+```
+
+# PhD Thesis (2005-2009)
+
+- With Benoît and Georges in Grenoble, with participation from Jim
+- On tree species coexistence in the mountain forests of the European Alps
+
+\centering \includegraphics[width=7cm]{figs/mountain_forest}
+
+# Position as ecologist at Cirad (2009-now)
+
+- Community ecology and applied statistics
+
+\vspace{0.25cm}
+
+- Expatriated in Madagascar (3 years)
+- Detached at JRC (EC research center) in Italy (3 years)
+- Conservation ecology in tropical forests
+- Main topics:
+    - Species vulnerability to climate change
+    - Role of tropical forests in the global carbon cycle
+
+\centering \includegraphics[width=7cm]{figs/Madagascar_forest}
+
+# Forecasting tropical forest cover in the future
+
+- Spatial model of tropical deforestation at high resolution
+- Under a business-as-usual scenario
+- Maps of the deforestation risk and potential futur forest cover
+- <https://forestatrisk.cirad.fr>
+
+\centering \includegraphics[height=0.50\textwidth]{figs/prob}
+
+# Species vulnerability to climate change
+
+- Trait and phylogenetic data
+- Joint Species Distribution Models
+- Madagascar, French Guiana, and New Caledonia
+- <https://ecology.ghislainv.fr/jSDM>
+
+\centering \includegraphics[height=0.50\textwidth]{figs/jSDM}
+
+# INTRACO project scientific motivations
+
+- Confusion regarding nature and implications of intraspecific variability in ecology
+- Concepts in temperate forests not yet well established for tropical forests
+    - Stable coexistence in tropical forest (cf. Clark et al. 2003)
+    - Niche multidimensionality and species coexistence in tropical forests
+
+\begin{center}
+\begin{tabular}{cc}
+\includegraphics[height=0.3\textwidth]{figs/intraco} &
+\includegraphics[height=0.3\textwidth]{figs/multidimensional-niche-Tokeshi1999} \\
+\end{tabular}
+\end{center}

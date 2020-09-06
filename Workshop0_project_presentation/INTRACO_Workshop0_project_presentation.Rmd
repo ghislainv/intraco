@@ -285,4 +285,4 @@ Camille would lead Tasks B, E, and (F)
 
 \centering \includegraphics[width=\textwidth]{figs/calendar}
 
-### References
+### References {}
