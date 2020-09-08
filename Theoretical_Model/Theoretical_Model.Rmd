@@ -1,0 +1,86 @@
+---
+classoption: table
+output: 
+  beamer_presentation:
+    # keep_tex: true
+    # toc: true
+    slide_level: 1
+    includes:
+      in_header: header.tex
+      before_body: doc_prefix.tex
+      after_body: doc_suffix.tex
+---
+
+```{r options, echo=FALSE}
+library(knitr)
+library(kableExtra)
+opts_chunk$set(echo=FALSE, cache=FALSE,
+               #results="hide", 
+               warning=FALSE,
+               message=FALSE, highlight=TRUE,
+               fig.show="hide", size="small",
+               fig.align="center",
+               tidy=FALSE)
+options(knitr.kable.NA="-")
+```
+
+# Objectives
+
+- Tree community dynamics model
+- Realistic model with demographic processes: growth, fecundity or recruitment, mortality
+- Species compete for resources (eg. light, water, nutrients)
+- High dimensionality for species niche
+- Density dependence mechanisms
+- Concentrate competition within species (competition intra > competition inter)
+- Easy to step from theoretical model to empirical models
+
+# Environment, individual, and species
+
+- Set of trees $i$ from different species $j$.
+- Environment defined by a set of variables for each individual $X_i=x_{1,i},\ldots,x_{n,i}$.
+- Micro-habitat with spatially autocorrelated variables.
+- Each species $j$ will have a different set of growth parameters $\beta_j=\beta_{1,j},\ldots,\beta_{n,j}$ for each of the environmental variables.
+
+\begin{center}
+\includegraphics[width=5cm]{figs/env.pdf}
+\end{center}
+
+# Demographic processes
+
+Growth $G$:   
+- Growth depending on tree size, environment, and competition.
+- $G_i=f(\beta_j, X_i, \text{tree size}_i, \text{competition}_i)$.
+- Competition index can be basal area locally.
+
+Mortality $M$:    
+- Mortality depending on tree size and growth (or only growth).
+- (Mortality indirectly depends on environment and competition).
+- $M_i=f(\text{size}_i, G_i)$.
+
+Fecundity $F$:
+- Fecundity depending on tree size.
+- $F_i=f(\text{size}_i)$.
+
+# Potential dynamics
+
+- Species should increase in abundance in favorable habitats.
+- Density dependence: in favorable habitats, abundance of the most performant species is limited by high intraspecific competition for resources.
+
+# Objectives
+
+$\checkmark$ Tree community dynamics model    
+$\checkmark$ Realistic model with demographic processes: growth, fecundity or recruitment, mortality    
+$\checkmark$ Species compete for resources    
+$\checkmark$ High dimensionality for species niche    
+$\checkmark$ Density dependence mechanisms    
+$\checkmark$ Concentrate competition within species (competition intra > competition inter)    
+$\checkmark$ Easy to step from theoretical model to empirical models
+
+# Tests
+
+With this simple model we could test or investigate:
+
+- Effect of the number of dimensions on the number of coexisting species.
+- The link with the Lotka-Volterra model (Georges' suggestion).
+- The effect of spatially autocorrelated environmental variables
+
