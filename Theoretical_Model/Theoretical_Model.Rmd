@@ -27,12 +27,13 @@ options(knitr.kable.NA="-")
 # Objectives
 
 - Tree community dynamics model
-- Realistic model with demographic processes: growth, fecundity or recruitment, mortality
+- Realistic model with demographic processes (cf. Hurtt and Pacala model): growth, fecundity/recruitment, mortality
 - Species compete for resources (eg. light, water, nutrients)
 - High dimensionality for species niche
 - Density dependence mechanisms
 - Concentrate competition within species (competition intra > competition inter)
 - Easy to step from theoretical model to empirical models
+- Simple enough to test various hypothesis
 
 # Environment, individual, and species
 
@@ -47,24 +48,28 @@ options(knitr.kable.NA="-")
 
 # Demographic processes
 
-Growth $G$:   
-- Growth depending on tree size, environment, and competition.
-- $G_i=f(\beta_j, X_i, \text{tree size}_i, \text{competition}_i)$.
-- Competition index can be basal area locally.
+**Growth $G$:**
 
-Mortality $M$:    
-- Mortality depending on tree size and growth (or only growth).
-- (Mortality indirectly depends on environment and competition).
-- $M_i=f(\text{size}_i, G_i)$.
+- Growth depending on tree size, environment, and competition
+- $G_i=f(\beta_j, X_i, \text{tree size}_i, \text{competition}_i)$
+- Competition index can be basal area locally
 
-Fecundity $F$:
-- Fecundity depending on tree size.
-- $F_i=f(\text{size}_i)$.
+**Mortality $M$:**
+
+- Mortality depending on tree size and growth (or only growth)
+- (Mortality indirectly depends on environment and competition)
+- $M_i=f(\text{size}_i, G_i)$
+
+**Fecundity $F$:**
+
+- Fecundity depending on tree size (and maybe growth to include inter-annual variability)
+- $F_i=f(\text{size}_i)$
 
 # Potential dynamics
 
 - Species should increase in abundance in favorable habitats.
-- Density dependence: in favorable habitats, abundance of the most performant species is limited by high intraspecific competition for resources.
+- **Density dependence:** in favorable habitats, abundance of the most performant species should be limited by high intraspecific competition for resources.
+- No mandatory trade-offs
 
 # Objectives
 
@@ -74,13 +79,14 @@ $\checkmark$ Species compete for resources
 $\checkmark$ High dimensionality for species niche    
 $\checkmark$ Density dependence mechanisms    
 $\checkmark$ Concentrate competition within species (competition intra > competition inter)    
-$\checkmark$ Easy to step from theoretical model to empirical models
+$\checkmark$ Easy to step from theoretical model to empirical models    
+($\checkmark$) Simple enough to test various hypothesis
 
 # Tests
 
 With this simple model we could test or investigate:
 
-- Effect of the number of dimensions on the number of coexisting species.
+- The effect of the number of dimensions on the number of coexisting species.
 - The link with the Lotka-Volterra model (Georges' suggestion).
-- The effect of spatially autocorrelated environmental variables
+- The effect of spatially autocorrelated environmental variables.
 
