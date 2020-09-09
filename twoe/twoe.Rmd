@@ -1,0 +1,218 @@
+---
+classoption: table, dvipsname, compress
+output: 
+  beamer_presentation: 
+    #citation_package: natbib
+    includes:
+      after_body: doc_suffix.tex
+      before_body: doc_prefix.tex
+      in_header: header.tex
+    #keep_tex: yes
+    slide_level: 3
+colorlinks: no
+fontsize: 10pt
+link-citations: yes
+linkcolor: Black
+#bibliography: /home/ghislain/Documents/Bibliography/biblio.bib
+#bibliography: bib/biblio.bib
+#biblio-style: "apalike"
+---
+
+```{r options, echo=FALSE}
+library(knitr)
+library(kableExtra)
+opts_chunk$set(echo=FALSE, cache=FALSE,
+               #results="hide", 
+               warning=FALSE,
+               message=FALSE, highlight=TRUE,
+               fig.show="hide", size="small",
+               fig.align="center",
+               tidy=FALSE)
+options(knitr.kable.NA="-")
+```
+
+# Intro
+
+### twoe
+
+- `twoe` (2e) is the combination of:
+  - **an R package**: to estimate species demographic parameter from permanent sample plot data
+  - **a Java forest dynamics simulator**: to simulate tropical forest dynamics
+- <http://twoe.sourceforge.net> (very old)
+
+### Permanent sample plot data
+
+\begin{center}
+\includegraphics[width=\textwidth]{figs/Extract.png}\\
+Extract of MBaiki data-base (Central African forest)
+\end{center}
+
+### R package
+
+Provides functions to:
+
+- **Format** the permanent sample plot data for demographic parameter inference (compute annual growth, competition indices, time interval between censuses, etc.).
+- **Estimate** the species parameters for three demographic processes: growth, mortality, and recruitment.
+
+\vspace{0.5cm}
+
+\centering \includegraphics[width=2cm]{figs/Rlogo.png}
+
+### Java simulator
+
+- Simulate the forest dynamics from a set of demographic parameters for each species.
+- Providing summary outputs.
+- Using the Capsis plateform <https://capsis.cirad.fr>
+
+\vspace{0.5cm}
+
+\centering \includegraphics[width=2cm]{figs/Capsis-logo.png}
+
+# Models
+
+### Growth
+
+\begin{footnotesize}
+\begin{tabular}{l}
+  \underline{Error process}\\
+  $\tg{G_{ik}^{\text{obs}}} \sim \text{Normal}(\tr{G_{ik}^{\text{true}}},V_i^{\text{err}})$\\
+  $V_i^{\text{err}}=(0.927+0.0038 \tg{D_i})^2$\\
+  ~\\
+  \underline{Growth process}\\
+  $\log(\tr{G_{ik}^{\text{true}}}) \sim \text{Normal}(
+  (\tb{\beta_0}+\tb{b_{0,k}})+(\tb{\beta_1}+\tb{b_{1,k}})\log(\tg{D_i})+(\tb{\beta_2}+\tb{b_{2,k}})\log(\tg{C_i}+1),\tb{V})$\\
+\end{tabular}
+
+\vspace{0.4cm}
+
+\begin{tabular}{l}
+  \underline{Priors}\\
+  $[\beta_0,\beta_1,\beta_2] \sim \text{Normal}_{3}(\mu_{\beta},V_{\beta})$\\
+  $[b_{0,k},b_{1,k},b_{2,k}] \sim \text{Normal}_{3}(0,\tb{V_{b}})$\\
+  $V_{b} \sim \text{Inverse-Wishart}(r,rR)$\\
+  $V \sim \text{Inverse-Gamma}(\nu,\delta)$\\
+  ~\\
+  $G_{ik}$ is the growth (mm.yr$^{-1}$) of tree $i$ of species $k$ between census $c$ and
+  $c+1$\\
+  $D_{i}$ is the diameter (cm) of tree $i$ at census $c$\\
+  $C_{i}$ is the competition index (m$^{2}$.ha$^{-1}$) in the neighborhood of tree $i$ at census
+  $c$\\
+  $b_{0,k},b_{1,k},b_{2,k}$ are the species random effects\\
+\end{tabular}
+\end{footnotesize}
+
+### Mortality
+
+\begin{footnotesize}
+\begin{tabular}{l}
+  \underline{Mortality process}\\
+  $\tg{S_{ik}} \sim \text{Bernoulli}(\theta^{\prime}_{ik})$\\
+  $\theta^{\prime}_{ik}=1-(1-\tr{\theta_{ik}})^{\tg{Y_i}}$\\
+  $\text{logit}(\tr{\theta_{ik}})=(\tb{\beta_0}+\tb{b_{0,k}})+(\tb{\beta_1}+\tb{b_{1,k}})(\tg{D_i}-20)+(\tb{\beta_2}+\tb{b_{2,k}})(\tg{C_i}-20)+\epsilon_i$\\
+\end{tabular}
+
+\vspace{0.4cm}
+
+\begin{tabular}{l}
+  \underline{Priors}\\
+  $\epsilon_i \sim \text{Normal}(0,V=1)$\\
+  $[\beta_0,\beta_1,\beta_2] \sim \text{Normal}_{3}(\mu_{\beta},V_{\beta})$\\
+  $[b_{0,k},b_{1,k},b_{2,k}] \sim \text{Normal}_{3}(0,\tb{V_{b}})$\\
+  $V_{b} \sim \text{Inverse-Wishart}(r,rR)$\\
+  ~\\
+  $S_{ik}$ is the status (0=alive, 1=dead) of tree $i$ of species $k$ between census $c$ and
+  $c+1$\\
+  \tg{$Y_i$ is the time interval (yr) between census $c$ and $c+1$}\\
+  $\theta^{\prime}_{ik}$ is the mortality rate for time interval $Y_i$\\
+  $\theta_{ik}$ is the annual mortality rate\\
+  $D_{i}$ is the diameter (cm) of tree $i$ at census $c$\\
+  $C_{i}$ is the competition index (m$^{2}$.ha$^{-1}$) in the neighborhood of tree $i$ at census
+  $c$\\
+  $b_{0,k},b_{1,k},b_{2,k}$ are the species random effects\\
+\end{tabular}
+\end{footnotesize}
+
+### Recruitment
+
+\begin{footnotesize}
+\begin{tabular}{l}
+  \underline{Recruitment process}\\
+  $\tg{R_{jk}} \sim \text{Poisson}(\lambda^{\prime}_{jk})$\\
+  $\lambda^{\prime}_{jk}=\tr{\lambda_{jk}} \tg{Y_j} \tg{A_j}$\\
+  $\text{log}(\tr{\lambda_{jk}})=(\tb{\beta_0}+\tb{b_{0,k}})+(\tb{\beta_1}+\tb{b_{1,k}})(\tg{BA_{jk}}-0.5)+(\tb{\beta_2}+\tb{b_{2,k}})(\tg{C_j}-20)+\epsilon_j$\\
+\end{tabular}
+
+\vspace{0.4cm}
+
+\begin{tabular}{l}
+  \underline{Priors}\\
+  $\epsilon_j \sim \text{Normal}(0,V=1)$\\
+  $[\beta_0,\beta_1,\beta_2] \sim \text{Normal}_{3}(\mu_{\beta},V_{\beta})$\\
+  $[b_{0,k},b_{1,k},b_{2,k}] \sim \text{Normal}_{3}(0,\tb{V_{b}})$\\
+  $V_{b} \sim \text{Inverse-Wishart}(r,rR)$\\
+  ~\\
+  $R_{jk}$ is the number of recruits of quadrat $j$ for species $k$ between census $c$ and
+  $c+1$\\
+  \tg{$Y_j$ is the time interval (yr) between census $c$ and $c+1$}\\
+  \tg{$A_j$ is the area (m$^2$) of quadrat $j$}\\
+  $\lambda^{\prime}_{jk}$ is the mean number of recruits for time interval $Y_j$ and area $A_j$\\
+  $\lambda_{jk}$ is the mean number of recruits (.yr$^{-1}$.m$^{-2}$)\\
+  $BA_{jk}$ is the basal area of conspecific trees (m$^{2}$.ha$^{-1}$) for sp. $k$ in the quadrat $j$ at census
+  $c$\\
+  $C_{j}$ is the competition index (m$^{2}$.ha$^{-1}$) in the quadrat $j$ at census
+  $c$\\
+  $b_{0,k},b_{1,k},b_{2,k}$ are the species random effects\\
+\end{tabular}
+\end{footnotesize}
+
+### Model predictions per species
+
+\begin{center}
+\begin{tabular}{ll}
+\includegraphics[width=7cm]{figs/model-predictions-1.png}&
+\includegraphics[width=2cm]{figs/Musanga_cecropioides.jpg}\\
+\end{tabular}
+\includegraphics[width=6cm]{figs/Legend.png}\\
+Sp162 $=$ \textit{Musanga cecropioides} R.Br. \& Tedlie
+\end{center}
+
+### Model predictions per species
+
+\begin{center}
+\begin{tabular}{ll}
+\includegraphics[width=7cm]{figs/model-predictions-2.png}&
+\includegraphics[width=2cm]{figs/Musanga_cecropioides.jpg}\\
+\end{tabular}
+\includegraphics[width=6cm]{figs/Legend.png}\\
+Sp162 $=$ \textit{Musanga cecropioides} R.Br. \& Tedlie
+\end{center}
+
+# Simulations
+
+### Simulations
+
+\begin{center}
+\begin{tabular}{ll}
+\includegraphics[width=5cm]{figs/forest-dynamics-1.png}&
+\includegraphics[width=5cm]{figs/forest-dynamics-2.png}\\
+\end{tabular}
+\includegraphics[width=4cm]{figs/Legend-2.png}
+\end{center}
+
+### Summary outputs
+
+\centering \includegraphics[width=6cm]{figs/Capsis.png}\\
+\centering \includegraphics[width=6cm]{figs/twoe_3D.png}
+
+
+# Intraspecific variability
+
+### Intraspecific variability
+
+- Could enter the model through:
+  - Individual random effects
+  - Either structured spatially or not
+- Individual random effects could be estimated from the data
+- Would be hard to include multiple environmental factors (explicit niche multidimensionality)
+- Strong link with the theoretical model suggested previously
+
