@@ -1,0 +1,135 @@
+---
+classoption: table, dvipsname, compress
+output: 
+  beamer_presentation: 
+    #citation_package: natbib
+    includes:
+      after_body: doc_suffix.tex
+      before_body: doc_prefix.tex
+      in_header: header.tex
+    #keep_tex: yes
+    slide_level: 2
+colorlinks: no
+fontsize: 10pt
+link-citations: yes
+linkcolor: Black
+urlcolor: Blue
+#bibliography: /home/ghislain/Documents/Bibliography/biblio.bib
+#bibliography: bib/biblio.bib
+#biblio-style: "apalike"
+---
+
+```{r options, echo=FALSE}
+library(knitr)
+library(kableExtra)
+opts_chunk$set(echo=FALSE, cache=FALSE,
+               #results="hide", 
+               warning=FALSE,
+               message=FALSE, highlight=TRUE,
+               fig.show="hide", size="small",
+               fig.align="center",
+               tidy=FALSE)
+options(knitr.kable.NA="-")
+```
+
+# Objectives
+
+## Objectives
+
+We suggest discussing four main points on Monday. These four main points have emerged
+from the “outstanding questions” section in the TREE article and from our previous
+workshops.
+
+\vspace{1cm}
+
+\centering \includegraphics[width=0.8\textwidth]{figs/cover-article-TREE}
+
+## Point 1
+
+1. **What are the consequences of including a random IV in place of an environmentally-driven IV in theoretical community models ?** First results from a
+theoretical community model by Camille.
+
+\centering \includegraphics[width=\textwidth]{figs/coexistence}
+
+## Point 2
+
+2. **Is the spatial autocorrelation of tree growth due to environmental or dispersal factors?** How would it be possible to test for the effect of environmental variables or
+dispersal factors on tree growth spatial autocorrelation?
+
+\centering \includegraphics[width=0.7\textwidth]{figs/spatial-autocorrelation}
+
+## Point 3
+
+3. **How to correctly structure IV in space and time in theoretical community dynamics/forest dynamics models in order to obtain species coexistence?** Discussion
+could start from results obtained by Clark et al. 2007 and Purves et al. 2014.
+
+\footnotesize Clark, J. S.; Dietze, M.; Chakraborty, S.; Agarwal, P. K.; Ibanez, I.; LaDeau, S. & Wolosin, M. Resolving the biodiversity paradox. _Ecology Letters_, 2007, 10, 647-659
+
+\footnotesize Purves, D. W. & Vanderwel, M. C. Coomes, D. A.; Burslem, D. F. R. P. & Simonson, W. D. (Eds.) Traits, states and rates: understanding coexistence in forests _Forests and Global Change_, Cambridge University Press, 2014, 161-194
+
+\centering \includegraphics[width=0.5\textwidth]{figs/Clark2007-RITES}
+
+## Point 4
+
+4. **How the nature of IV and the relationship between observed species attribute and inferred performance impact the effect of IV on species coexistence?** A modelling
+framework example.
+
+\centering \includegraphics[width=0.8\textwidth]{figs/performance_attribute}
+
+## Tasks and subgroups
+
+Based on the discussion of these four main points, the idea is to identify **two to three tasks** that could be tackled in **subgroups** during the rest of the week.
+
+# Week planning
+
+## Week planning
+
+\begin{center}
+\includegraphics[width=\textwidth]{figs/program}
+\end{center}
+
+On Tuesday morning: short official presentation of **Cesab** and **sDiv** by Nicolas Mouquet and Marten Winter.
+
+# Excursion
+
+## Car ride
+
+\centering \includegraphics[width=0.8\textwidth]{figs/excursion}
+
+- Leaving Cesab around 14:30
+- ~40 min driving
+
+## Small walk
+
+\centering \includegraphics[width=\textwidth]{figs/walk}
+
+- Arrival at Col du Fambetou before 16:00
+- About 1 hour walking (maximum)
+- View point from the Castle of Viviourès.
+
+## Wine testing
+
+\centering \includegraphics[width=\textwidth]{figs/Mas_Bruguiere}
+
+- At 17:00
+- Very good (white and red) wines from appelation "Pic Saint Loup".
+- https://mas-bruguiere.com/
+- About 45 min. Back in Montpellier at 19:00 for diner.
+
+# Participants
+
+## Participants
+
+\small
+- Adam Clark
+- James Clark
+- Benoît Courbaud
+- Nadja Rüger (remotely on Monday)
+- Georges Kunstler (leaving on Wed. afternoon)
+- Claire Fortunel
+- Raphaël Pélissier (Monday)
+- Guerric Lemaire (unavailable, except maybe on Thursday)
+- Joannès Guillemot (unavailable, in Brazil)
+- Isabelle Maréchaux
+- Camille Girard-Tercieux
+- Ghislain Vieilledent
